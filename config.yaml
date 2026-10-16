@@ -1,0 +1,37 @@
+paths:
+  incoming: data/incoming
+  raw: data/raw
+  rejected: data/rejected
+  master: data/master
+  logs: logs
+
+columns:
+  sample_id: Sample ID
+  x: pixel_x
+  y: pixel_y
+  label: label
+
+drop_columns: [label_idx]
+
+labels:
+  allowed:
+    - tessuto adiposo
+    - tessuto tumorale
+  # true = rows with an empty label are accepted (with a warning)
+  # false = they make the batch fail. Set this once you decide.
+  allow_missing: true
+
+file_classes:
+  healthy:
+    keywords: [healthy, adiposo]
+    label: tessuto adiposo
+  tumour:
+    keywords: [tumour, tumor, tumorale]
+    label: tessuto tumorale
+
+  # Regex that finds the Sample ID inside a file name; the part in () is the ID
+sample_id_regex: '(SB\d+)'
+
+label_map:
+  tessuto adiposo: 0
+  tessuto tumorale: 1
