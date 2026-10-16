@@ -5,3 +5,6 @@ __pycache__/
 *.xlsx
 *.csv
 *.tmp
+venv/
+.venv/
+env/
