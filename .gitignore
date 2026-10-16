@@ -1,2 +1,7 @@
 data/
 logs/
+__pycache__/
+*.parquet
+*.xlsx
+*.csv
+*.tmp
